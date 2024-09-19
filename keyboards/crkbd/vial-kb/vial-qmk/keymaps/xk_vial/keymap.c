@@ -118,8 +118,6 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 
 #ifdef RGB_MATRIX_ENABLE
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
-  // uprintf("yes rgb_matrix_enable %d - %d", led_min, led_max);
-  // dprintf("yes rgb_matrix_enable %d - %d", led_min, led_max);
    const uint8_t LED_LIST[] = { 0, 7, 8, 18, 19, 20, 21, 22, 23, 30, 31, 44, 45 };
   switch(get_highest_layer(layer_state)){  // special handling per layer
     case 0:
@@ -127,28 +125,23 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
       break;
     case 1:
       for (uint8_t i = 0; i < ARRAYSIZE(LED_LIST); i++)
-         rgb_matrix_set_color(LED_LIST[i], RGB_CYAN);
-      // rgb_matrix_set_color_all(RGB_MAGENTA);
+         rgb_matrix_set_color(LED_LIST[i], RGB_PURPLE);
       break;
     case 2:
       for (uint8_t i = 0; i < ARRAYSIZE(LED_LIST); i++)
-          rgb_matrix_set_color(LED_LIST[i], RGB_MAGENTA);
-      // rgb_matrix_set_color_all(RGB_GREEN);
+          rgb_matrix_set_color(LED_LIST[i], RGB_CYAN);
       break;
     case 3:
       for (uint8_t i = 0; i < ARRAYSIZE(LED_LIST); i++)
           rgb_matrix_set_color(LED_LIST[i], RGB_GREEN);
-      // rgb_matrix_set_color_all(RGB_RED);
       break;
     case 4:
       for (uint8_t i = 0; i < ARRAYSIZE(LED_LIST); i++)
           rgb_matrix_set_color(LED_LIST[i], RGB_RED);
-      // rgb_matrix_set_color_all(RGB_RED);
       break;
     case 5:
       for (uint8_t i = 0; i < ARRAYSIZE(LED_LIST); i++)
           rgb_matrix_set_color(LED_LIST[i], RGB_YELLOW);
-      // rgb_matrix_set_color_all(RGB_RED);
       break;
   }
   return false;
